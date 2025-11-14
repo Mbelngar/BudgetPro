@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetPro.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Couleurs -->
+            <Color x:Key="Primary">#FF7A00</Color>
+            <Color x:Key="PrimaryDark">#FF6600</Color>
+            <Color x:Key="Success">#00A651</Color>
+            <Color x:Key="Info">#0088A8</Color>
+            <Color x:Key="Danger">#DC3545</Color>
+            <Color x:Key="TextPrimary">#000000</Color>
+            <Color x:Key="TextSecondary">#666666</Color>
+            <Color x:Key="Border">#0088A8</Color>
+            <Color x:Key="Background">#F5F5F5</Color>
+            <Color x:Key="White">#FFFFFF</Color>
+
+            <!-- Styles globaux -->
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+            </Style>
+
+            <!-- Style pour les boutons principaux -->
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="CornerRadius" Value="15" />
+            </Style>
+
+            <!-- Style pour les boutons secondaires -->
+            <Style x:Key="SuccessButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Success}" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="CornerRadius" Value="15" />
+            </Style>
+
+            <!-- Style pour les Entry -->
+            <Style x:Key="BorderedEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource Info}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource Info}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="55" />
+            </Style>
+
+            <!-- Style pour les titres -->
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+            </Style>
+
+            <!-- Style pour les sous-titres -->
+            <Style x:Key="Subtitle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+            </Style>
+
+            <!-- Style pour les icônes de catégorie -->
+            <Style x:Key="CategoryIcon" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

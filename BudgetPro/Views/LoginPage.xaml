@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetPro.Views.LoginPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+            <!-- Logo -->
+            <Image Source="logo_budgetpro.png" 
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"
+                   Margin="0,40,0,0"/>
+
+            <!-- Titre -->
+            <Label Text="Let's Start !!" 
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Margin="0,20,0,40"/>
+
+            <!-- Champ Email -->
+            <Border StrokeThickness="2"
+                    Stroke="#0088A8"
+                    StrokeShape="RoundRectangle 10"
+                    Padding="15,0"
+                    HeightRequest="55">
+                <Entry Placeholder="Entrez votre Email"
+                       PlaceholderColor="#0088A8"
+                       TextColor="#0088A8"
+                       FontSize="16"
+                       Keyboard="Email"
+                       VerticalOptions="Center"/>
+            </Border>
+
+            <!-- Champ Mot de passe -->
+            <Border StrokeThickness="2"
+                    Stroke="#0088A8"
+                    StrokeShape="RoundRectangle 10"
+                    Padding="15,0"
+                    HeightRequest="55">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Entry Grid.Column="0"
+                           x:Name="PasswordEntry"
+                           Placeholder="Entrez votre Mot de passe"
+                           PlaceholderColor="#0088A8"
+                           TextColor="#0088A8"
+                           FontSize="16"
+                           IsPassword="True"
+                           VerticalOptions="Center"/>
+                    <ImageButton Grid.Column="1"
+                                 Source="eye_icon.png"
+                                 WidthRequest="24"
+                                 HeightRequest="24"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnTogglePasswordVisibility"/>
+                </Grid>
+            </Border>
+
+            <!-- Mot de passe oublié -->
+            <Label Text="Mot de passe oublié?"
+                   FontSize="14"
+                   TextColor="Black"
+                   HorizontalOptions="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnForgotPasswordTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!-- Bouton Se connecter -->
+            <Button Text="Se connecter"
+                    Style="{StaticResource PrimaryButton}"
+                    Margin="0,20,0,0"
+                    Clicked="OnLoginClicked"/>
+
+            <!-- Bouton S'inscrire -->
+            <Button Text="S'inscrire"
+                    Style="{StaticResource SuccessButton}"
+                    Clicked="OnRegisterClicked"/>
+
+            <!-- Séparateur -->
+            <Grid ColumnDefinitions="*,Auto,*" Margin="0,30,0,20">
+                <BoxView Grid.Column="0" 
+                         HeightRequest="1" 
+                         Color="Gray" 
+                         VerticalOptions="Center"
+                         Margin="0,0,10,0"/>
+                <Label Grid.Column="1" 
+                       Text="Se connecter avec" 
+                       FontSize="14"
+                       TextColor="Black"
+                       VerticalOptions="Center"/>
+                <BoxView Grid.Column="2" 
+                         HeightRequest="1" 
+                         Color="Gray" 
+                         VerticalOptions="Center"
+                         Margin="10,0,0,0"/>
+            </Grid>
+
+            <!-- Boutons réseaux sociaux -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+                <ImageButton Source="google_icon.png"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             CornerRadius="25"
+                             BackgroundColor="White"
+                             Clicked="OnGoogleLoginClicked"/>
+                <ImageButton Source="apple_icon.png"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             CornerRadius="25"
+                             BackgroundColor="White"
+                             Clicked="OnAppleLoginClicked"/>
+                <ImageButton Source="facebook_icon.png"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             CornerRadius="25"
+                             BackgroundColor="White"
+                             Clicked="OnFacebookLoginClicked"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

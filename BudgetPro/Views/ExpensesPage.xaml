@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetPro.Views.ExpensesPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Padding="20" ColumnDefinitions="Auto,*,Auto,Auto">
+            <ImageButton Grid.Column="0"
+                         Source="back_icon.png"
+                         WidthRequest="24"
+                         HeightRequest="24"
+                         BackgroundColor="Transparent"
+                         Clicked="OnBackClicked"/>
+
+            <VerticalStackLayout Grid.Column="1" Margin="15,0,0,0">
+                <Label Text="Dépenses" 
+                       FontSize="24" 
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+                <Label Text="01 Mars 25 - 31 Mars 25" 
+                       FontSize="12"
+                       TextColor="Gray"/>
+            </VerticalStackLayout>
+
+            <ImageButton Grid.Column="2"
+                         Source="search_icon.png"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         Margin="10,0"
+                         BackgroundColor="Transparent"/>
+
+            <ImageButton Grid.Column="3"
+                         Source="profile_icon.png"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         CornerRadius="20"
+                         BackgroundColor="Transparent"/>
+        </Grid>
+
+        <!-- Contenu principal -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Carte Solde Total -->
+                <Border BackgroundColor="#FF7A00"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="25"
+                        HeightRequest="120">
+                    <Grid RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
+                        <Image Grid.Row="0" Grid.Column="0"
+                               Source="expense_white_icon.png"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               VerticalOptions="Start"/>
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1"
+                                            Grid.RowSpan="2"
+                                            VerticalOptions="Center"
+                                            Margin="20,0,0,0">
+                            <Label Text="Solde totale"
+                                   FontSize="14"
+                                   TextColor="White"/>
+                            <Label Text="45,000 FCFA"
+                                   FontSize="32"
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Liste des transactions -->
+                <VerticalStackLayout Spacing="0">
+
+                    <!-- Transaction: Santé -->
+                    <Grid Padding="0,15" ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0"
+                               Source="health_icon.png"
+                               WidthRequest="45"
+                               HeightRequest="45"/>
+
+                        <VerticalStackLayout Grid.Column="1" 
+                                            Margin="15,0,0,0"
+                                            VerticalOptions="Center">
+                            <Label Text="Santé"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"/>
+                            <Label Text="Jeu 20 Mar 25 07:48 am"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End">
+                            <Label Text="-30,000FCFA"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   HorizontalOptions="End"/>
+                            <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
+                                <Image Source="cash_icon.png"
+                                       WidthRequest="16"
+                                       HeightRequest="16"/>
+                                <Label Text="Cash"
+                                       FontSize="12"
+                                       TextColor="Gray"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+
+                    <!-- Transaction: Nutrition -->
+                    <Grid Padding="0,15" ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0"
+                               Source="nutrition_icon.png"
+                               WidthRequest="45"
+                               HeightRequest="45"/>
+
+                        <VerticalStackLayout Grid.Column="1" 
+                                            Margin="15,0,0,0"
+                                            VerticalOptions="Center">
+                            <Label Text="Nutrition"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"/>
+                            <Label Text="Jeu 20 Mar 25 07:48 am"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End">
+                            <Label Text="-25,000FCFA"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   HorizontalOptions="End"/>
+                            <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
+                                <Image Source="card_icon.png"
+                                       WidthRequest="16"
+                                       HeightRequest="16"/>
+                                <Label Text="Carte"
+                                       FontSize="12"
+                                       TextColor="Gray"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+
+                    <!-- Transaction: Transport -->
+                    <Grid Padding="0,15" ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0"
+                               Source="transport_icon.png"
+                               WidthRequest="45"
+                               HeightRequest="45"/>
+
+                        <VerticalStackLayout Grid.Column="1" 
+                                            Margin="15,0,0,0"
+                                            VerticalOptions="Center">
+                            <Label Text="Transport"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"/>
+                            <Label Text="Jeu 20 Mar 25 07:48 am"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End">
+                            <Label Text="-45,000FCFA"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   HorizontalOptions="End"/>
+                            <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
+                                <Image Source="savings_icon.png"
+                                       WidthRequest="16"
+                                       HeightRequest="16"/>
+                                <Label Text="Économies"
+                                       FontSize="12"
+                                       TextColor="Gray"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+
+                    <!-- Transaction: Maison -->
+                    <Grid Padding="0,15" ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0"
+                               Source="house_icon.png"
+                               WidthRequest="45"
+                               HeightRequest="45"/>
+
+                        <VerticalStackLayout Grid.Column="1" 
+                                            Margin="15,0,0,0"
+                                            VerticalOptions="Center">
+                            <Label Text="Maison"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"/>
+                            <Label Text="Jeu 20 Mar 25 07:48 am"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End">
+                            <Label Text="-95,000FCFA"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   HorizontalOptions="End"/>
+                            <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
+                                <Image Source="card_icon.png"
+                                       WidthRequest="16"
+                                       HeightRequest="16"/>
+                                <Label Text="Carte"
+                                       FontSize="12"
+                                       TextColor="Gray"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+
+                    <!-- Transaction: Voyage -->
+                    <Grid Padding="0,15" ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0"
+                               Source="travel_icon.png"
+                               WidthRequest="45"
+                               HeightRequest="45"/>
+
+                        <VerticalStackLayout Grid.Column="1" 
+                                            Margin="15,0,0,0"
+                                            VerticalOptions="Center">
+                            <Label Text="Voyage"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"/>
+                            <Label Text="Jeu 20 Mar 25 07:48 am"
+                                   FontSize="12"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End">
+                            <Label Text="-50,000FCFA"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   HorizontalOptions="End"/>
+                            <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
+                                <Image Source="cash_icon.png"
+                                       WidthRequest="16"
+                                       HeightRequest="16"/>
+                                <Label Text="Cash"
+                                       FontSize="12"
+                                       TextColor="Gray"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar avec bouton flottant -->
+        <Grid Grid.Row="2">
+            <!-- Bouton flottant + -->
+            <Border WidthRequest="60"
+                    HeightRequest="60"
+                    BackgroundColor="#00A651"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 30"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Margin="0,-30,30,0">
+                <Label Text="+"
+                       FontSize="40"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="0,-5,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAddExpenseClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Border>
+
+            <!-- Navigation Bar -->
+            <Border BackgroundColor="#0088A8"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 30,30,0,0"
+                    Padding="20,15"
+                    HeightRequest="70"
+                    VerticalOptions="End">
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <!-- Home -->
+                    <ImageButton Grid.Column="0"
+                                 Source="home_icon.png"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnHomeTapped"/>
+
+                    <!-- Budget -->
+                    <ImageButton Grid.Column="1"
+                                 Source="budget_icon.png"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 BackgroundColor="Transparent"/>
+
+                    <!-- Stats -->
+                    <ImageButton Grid.Column="2"
+                                 Source="stats_icon.png"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 BackgroundColor="Transparent"/>
+
+                    <!-- Categories -->
+                    <ImageButton Grid.Column="3"
+                                 Source="categories_icon.png"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnCategoriesTapped"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

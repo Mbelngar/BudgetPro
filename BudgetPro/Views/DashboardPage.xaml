@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetPro.Views.DashboardPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Padding="20" ColumnDefinitions="*,Auto,Auto">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Mars" 
+                       FontSize="24" 
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+                <Label Text="01 Mars 25 - 31 Mars 25" 
+                       FontSize="12"
+                       TextColor="Gray"/>
+            </VerticalStackLayout>
+
+            <ImageButton Grid.Column="1"
+                         Source="search_icon.png"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         Margin="10,0"
+                         BackgroundColor="Transparent"/>
+
+            <ImageButton Grid.Column="2"
+                         Source="profile_icon.png"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         CornerRadius="20"
+                         BackgroundColor="Transparent"/>
+        </Grid>
+
+        <!-- Contenu principal -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Carte Solde -->
+                <Border BackgroundColor="#FF7A00"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="25"
+                        HeightRequest="180">
+                    <Grid RowDefinitions="Auto,Auto,Auto">
+                        <Label Grid.Row="0"
+                               Text="Solde"
+                               FontSize="18"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
+
+                        <Label Grid.Row="1"
+                               Text="100,000 FCFA"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               Margin="0,10,0,20"/>
+
+                        <Grid Grid.Row="2" ColumnDefinitions="*,*">
+                            <!-- Dépense -->
+                            <HorizontalStackLayout Grid.Column="0" Spacing="10">
+                                <Image Source="expense_icon.png" 
+                                       WidthRequest="24" 
+                                       HeightRequest="24"/>
+                                <VerticalStackLayout>
+                                    <Label Text="Dépense" 
+                                           FontSize="12"
+                                           TextColor="White"/>
+                                    <Label Text="45,000 FCFA" 
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+
+                            <!-- Revenu -->
+                            <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                <Image Source="income_icon.png" 
+                                       WidthRequest="24" 
+                                       HeightRequest="24"/>
+                                <VerticalStackLayout>
+                                    <Label Text="Revénu" 
+                                           FontSize="12"
+                                           TextColor="White"/>
+                                    <Label Text="45,000 FCFA" 
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <!-- Section Dépenses -->
+                <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                    <Label Grid.Column="0"
+                           Text="Dépense"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black"/>
+                    <Label Grid.Column="1"
+                           Text="Voir plus"
+                           FontSize="14"
+                           TextColor="#0088A8"
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnVoirPlusDepensesTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <!-- Liste des dépenses -->
+                <VerticalStackLayout Spacing="15">
+                    <!-- Santé -->
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0" 
+                               Source="health_icon.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="Santé"
+                               FontSize="16"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
+                        <Label Grid.Column="2"
+                               Text="30,000FCFA"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray"/>
+
+                    <!-- Nutrition -->
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0" 
+                               Source="nutrition_icon.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="Nutrition"
+                               FontSize="16"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
+                        <Label Grid.Column="2"
+                               Text="25,000FCFA"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray"/>
+
+                    <!-- Transport -->
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0" 
+                               Source="transport_icon.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="Transport"
+                               FontSize="16"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
+                        <Label Grid.Column="2"
+                               Text="45,000FCFA"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Section Revenus -->
+                <Grid ColumnDefinitions="*,Auto" Margin="0,20,0,0">
+                    <Label Grid.Column="0"
+                           Text="Revénu"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black"/>
+                    <Label Grid.Column="1"
+                           Text="Voir plus"
+                           FontSize="14"
+                           TextColor="#0088A8"
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnVoirPlusRevenusTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <!-- Liste des revenus -->
+                <VerticalStackLayout Spacing="15">
+                    <!-- Investissement -->
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0" 
+                               Source="investment_icon.png"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="Investissement"
+                               FontSize="16"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
+                        <Label Grid.Column="2"
+                               Text="50,000FCFA"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar -->
+        <Border Grid.Row="2"
+                BackgroundColor="#0088A8"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 30,30,0,0"
+                Padding="20,15"
+                HeightRequest="70">
+            <Grid ColumnDefinitions="*,*,*,*">
+                <!-- Home -->
+                <ImageButton Grid.Column="0"
+                             Source="home_icon_active.png"
+                             WidthRequest="35"
+                             HeightRequest="35"
+                             BackgroundColor="#FF7A00"
+                             CornerRadius="17"
+                             Padding="8"/>
+
+                <!-- Budget -->
+                <ImageButton Grid.Column="1"
+                             Source="budget_icon.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBudgetTapped"/>
+
+                <!-- Stats -->
+                <ImageButton Grid.Column="2"
+                             Source="stats_icon.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnStatsTapped"/>
+
+                <!-- Categories -->
+                <ImageButton Grid.Column="3"
+                             Source="categories_icon.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnCategoriesTapped"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+
+</ContentPage>
